@@ -13,8 +13,10 @@ import {
   FormMessage
 } from "@/components/ui/form"
 
+import { FaKey, FaEnvelope } from "react-icons/fa6"
+
 const signInSchema = z.object({
-  email: z.string().min(8).max(20),
+  email: z.string().min(8).max(20).includes('@'),
   password: z.string().min(8).max(20)
 })
 
@@ -53,6 +55,7 @@ export default function SignIn() {
                     required
                     type="email"
                     placeholder="exemplo@email.com"
+                    icon={<FaEnvelope class="p-0 m-0" />}
                     {...field}
                   />
                 </FormControl>
@@ -72,6 +75,7 @@ export default function SignIn() {
                     required
                     type="password"
                     placeholder="********"
+                    icon={<FaKey class="p-0 m-0" />}
                     {...field}
                   />
                 </FormControl>
