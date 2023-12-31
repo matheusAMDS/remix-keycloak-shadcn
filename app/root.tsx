@@ -1,3 +1,5 @@
+import styles from './globals.css'
+
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 import {
@@ -8,8 +10,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-
-import styles from './globals.css'
+import { VisitorLayout } from '@/components/visitor-layout';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: styles },
@@ -26,7 +27,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <VisitorLayout>
+          <Outlet />
+        </VisitorLayout>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
