@@ -1,0 +1,29 @@
+services:
+  app:
+    image: keycloak_pg
+    command: start --http-enabled=true --hostname-strict=false --optimized
+    ports:
+      - 127.0.0.1:8080:8080
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL_HOST: postgres
+      KC_DB_URL_PORT: 5432
+      KC_DB_URL_DATABASE: sso
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: matheusa56@
+
+  postgres:
+    image: postgres
+    ports:
+      - 127.0.0.1:5432:5432
+    environment:
+      POSTGRES_PASSWORD: matheusa56@
+      POSTGRES_DB: sso
+    volumes:
+      # /var/lib/postgresql/data is where postgres stores data
+      - postgres_sso_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_sso_data:
