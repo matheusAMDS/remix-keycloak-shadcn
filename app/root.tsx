@@ -10,7 +10,6 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { VisitorLayout } from '@/components/visitor-layout';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: styles },
@@ -27,9 +26,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <VisitorLayout>
-          <Outlet />
-        </VisitorLayout>
+        <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
