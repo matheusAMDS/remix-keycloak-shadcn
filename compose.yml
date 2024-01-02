@@ -1,5 +1,5 @@
 services:
-  app:
+  keycloak:
     image: keycloak_pg
     command: start --http-enabled=true --hostname-strict=false --optimized
     ports:
