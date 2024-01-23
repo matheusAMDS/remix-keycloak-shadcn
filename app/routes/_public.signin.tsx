@@ -15,11 +15,11 @@ import {
 
 import { FaKey, FaEnvelope } from "react-icons/fa6"
 import { ActionFunctionArgs } from '@remix-run/node'
-import { authenticator } from '~/services/auth.server'
 import { Form as RemixForm } from '@remix-run/react'
+import { authenticate } from '~/services/auth.server'
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  return await authenticator.authenticate("oidc-keycloak", request)
+  return await authenticate(request)
 }
 
 const signInSchema = z.object({
